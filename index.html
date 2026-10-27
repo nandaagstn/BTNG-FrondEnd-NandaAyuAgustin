@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Borcelle Showroom | Mobil Impian, Siap Meluncur</title>
+  <meta name="description" content="Showroom mobil online dengan katalog lengkap, harga jelas, dan unit terinspeksi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="icon" href="logo-bulat.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <section class="hero" id="beranda">
+    <div class="bg">
+      <video class="bg-video on" autoplay muted playsinline preload="auto"><source src="video_1.mp4" type="video/mp4"></video>
+      <video class="bg-video" muted playsinline preload="auto"><source src="video_2.mp4" type="video/mp4"></video>
+    </div>
+
+    <div class="page">
+      <header class="header" id="nav">
+        <a href="#beranda" class="logo" aria-label="Borcelle Showroom"><img src="logo-bulat.png" alt="Borcelle"></a>
+        <button class="burger" id="navToggle" aria-label="Buka menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <nav class="nav-pill" id="navLinks">
+          <a href="#beranda" class="active">Beranda</a>
+          <a href="#katalog">Katalog</a>
+          <a href="#keunggulan">Keunggulan</a>
+          <a href="#kontak">Kontak</a>
+          <a href="#kontak" class="sheet-cta">Test Drive</a>
+        </nav>
+        <a href="#kontak" class="cta-pill">Test Drive</a>
+        <button class="fav-pill" id="favNav" type="button" aria-label="Lihat mobil favorit"><i class="fa-solid fa-heart"></i><span id="favCount">0</span></button>
+      </header>
+
+      <div class="hero-center">
+        <div class="trust anim" style="--d:.05s">
+          <span class="avatar a1"><i class="fa-solid fa-car-side"></i></span>
+          <span class="avatar a2"><i class="fa-solid fa-bolt"></i></span>
+          <span class="avatar a3"><i class="fa-solid fa-key"></i></span>
+          <span class="trust-pill">Dipercaya 2000+ pembeli</span>
+        </div>
+        <h1 class="headline"><span>Mobil Impian</span><span>Siap Meluncur</span></h1>
+        <p class="subhead anim" style="--d:.28s">Temukan mobil listrik, hybrid, SUV, hingga city car dengan unit terinspeksi dan harga yang jelas.</p>
+        <a href="#katalog" class="cta anim pulse" style="--d:.4s">Lihat Katalog</a>
+      </div>
+
+      <ul class="stats">
+        <li class="anim" style="--d:.5s"><span class="icon">&lt;</span><strong id="statTotal">0</strong><span class="label">Unit di Katalog</span></li>
+        <li class="anim" style="--d:.58s"><span class="icon">%</span><strong id="statReady">0</strong><span class="label">Unit Tersedia</span></li>
+        <li class="anim" style="--d:.66s"><span class="icon">*</span><strong id="statBrand">0</strong><span class="label">Merek Pilihan</span></li>
+        <li class="anim" style="--d:.74s"><span class="icon">#</span><strong id="statPrice">0</strong><span class="label">Harga Mulai</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" id="katalog">
+      <div class="section-head">
+        <h2>Katalog Mobil</h2>
+        <p id="resultInfo">Memuat data mobil...</p>
+      </div>
+      <div class="toolbar">
+        <div class="field search">
+          <i class="fa-solid fa-magnifying-glass search-ico" aria-hidden="true"></i>
+          <input type="search" id="searchInput" placeholder="Cari mobil impianmu..." aria-label="Cari mobil" autocomplete="off">
+          <kbd class="search-key" aria-hidden="true">/</kbd>
+          <button type="button" class="search-clear" id="searchClear" aria-label="Hapus pencarian">&times;</button>
+        </div>
+        <label class="field has-select"><span class="sr-only">Merek</span>
+          <select id="brandFilter"><option value="">Semua merek</option>
+          </select>
+        </label>
+        <label class="field has-select"><span class="sr-only">Bahan bakar</span>
+          <select id="fuelFilter"><option value="">Semua bahan bakar</option>
+          </select>
+        </label>
+        <label class="field has-select"><span class="sr-only">Urutkan</span>
+          <select id="sortSelect">
+            <option value="terbaru">Terbaru</option>
+            <option value="termurah">Harga terendah</option>
+            <option value="termahal">Harga tertinggi</option>
+          </select></label>
+        <label class="toggle"><input type="checkbox" id="readyOnly"><span class="toggle-box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span><span class="toggle-text">Siap dibeli</span></label>
+        <label class="toggle"><input type="checkbox" id="favOnly"><span class="toggle-box"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span><span class="toggle-text">Favoritku</span></label>
+      </div>
+      <div class="grid" id="carGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="section" id="keunggulan">
+      <div class="section-head"><h2>Kenapa Borcelle</h2></div>
+      <div class="feature-list">
+        <article><h3>Unit sudah diinspeksi</h3><p>Mesin, kaki-kaki, dan kelistrikan dicek sebelum mobil masuk katalog.</p></article>
+        <article><h3>Harga jelas</h3><p>Harga tertera langsung di setiap kartu mobil, tanpa biaya tersembunyi.</p></article>
+        <article><h3>Test drive gratis</h3><p>Coba dulu sebelum memutuskan. Pilih jadwal, kami siapkan unitnya.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="kontak">
+    <div>
+      <img class="footer-logo" src="logoo.png" alt="Borcelle Showroom">
+      <p>Jl. Kenanga No. 88, Bandung<br>Buka setiap hari, 09.00 - 20.00 WIB</p>
+    </div>
+    <div>
+      <ul class="contact">
+        <li><a class="contact-link" href="https://wa.me/6282189001185" target="_blank" rel="noopener">
+          <span class="contact-ico"><img src="logo_whatsapp.png" alt="" width="22" height="22"></span>
+          <span class="contact-text"><b>WhatsApp</b>0821-8900-1185</span></a></li>
+        <li><a class="contact-link" href="https://www.instagram.com/nchalvrs_" target="_blank" rel="noopener">
+          <span class="contact-ico"><img src="instagram.png" alt="" width="22" height="22"></span>
+          <span class="contact-text"><b>Instagram</b>@nchalvrs_</span></a></li>
+        <li><a class="contact-link" href="mailto:borcelleshowroom@gmail.com">
+          <span class="contact-ico"><i class="fa-solid fa-envelope"></i></span>
+          <span class="contact-text"><b>Email</b>borcelleshowroom@gmail.com</span></a></li>
+      </ul>
+      <small>&copy; 2000-2026 Borcelle Showroom.</small>
+    </div>
+  </footer>
+
+  <dialog id="carModal" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Tutup detail">&times;</button>
+    <div id="modalBody"></div>
+  </dialog>
+
+  <div class="compare-bar" id="compareBar" role="region" aria-label="Bandingkan mobil">
+    <div class="compare-thumbs" id="compareThumbs"></div>
+    <button class="btn-ghost" id="compareClear" type="button">Kosongkan</button>
+    <button class="btn-solid" id="compareGo" type="button" disabled>Pilih minimal 2 mobil</button>
+  </div>
+
+  <dialog id="compareDialog" aria-labelledby="compareTitle">
+    <button class="modal-close" data-close aria-label="Tutup">&times;</button>
+    <div class="dialog-pad">
+      <h3 id="compareTitle">Bandingkan harga</h3>
+      <div class="cmp-grid" id="compareBody"></div>
+    </div>
+  </dialog>
+
+  <dialog id="orderDialog" aria-labelledby="orderTitle">
+    <button class="modal-close" data-close aria-label="Tutup">&times;</button>
+    <form class="dialog-pad order-form" id="orderForm">
+      <h3 id="orderTitle">Pesan mobil</h3>
+      <p class="order-car" id="orderCar"></p>
+      <label>Nama lengkap<input name="nama" required autocomplete="name"></label>
+      <div class="order-row">
+        <label>No. WhatsApp<input name="hp" type="tel" required autocomplete="tel" pattern="[0-9+ \-]{8,16}"></label>
+        <label>Jenis pesanan<select name="jenis"><option>Beli mobil</option><option>Test drive</option></select></label>
+      </div>
+      <label>Tanggal<input name="tanggal" id="orderDate" type="date" required></label>
+      <button class="btn-solid" type="submit">Kirim pesanan</button>
+    </form>
+  </dialog>
+
+  <div class="toast-box" id="toastBox" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
